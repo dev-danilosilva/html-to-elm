@@ -2,4 +2,4 @@
 
 
 ## Build Command
-`elm make src/Main.elm --output js/app.js`
+`elm make src/Main.elm --output app.js`
