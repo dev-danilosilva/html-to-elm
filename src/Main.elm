@@ -51,7 +51,7 @@ update msg model =
 
 view : Model -> Document Msg
 view model =
-    { title = "Html To Elm"
+    { title = "Html 2 Elm!"
     , body =
         [ div [class "container"]
             [ label [for "html-text"] [text "Html"]
