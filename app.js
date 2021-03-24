@@ -5327,7 +5327,9 @@ var $author$project$H$Render$node2Elm = function (node_) {
 					']',
 					' ',
 					'[',
-					$elm$core$String$concat(
+					A2(
+					$elm$core$String$join,
+					', ',
 					A2($elm$core$List$map, $author$project$H$Render$node2Elm, children)),
 					']'
 				]));
@@ -6211,11 +6213,11 @@ var $elm$html$Html$Events$onInput = function (tagger) {
 			$elm$html$Html$Events$alwaysStop,
 			A2($elm$json$Json$Decode$map, tagger, $elm$html$Html$Events$targetValue)));
 };
+var $elm$html$Html$p = _VirtualDom_node('p');
 var $elm$html$Html$Attributes$target = $elm$html$Html$Attributes$stringProperty('target');
 var $elm$virtual_dom$VirtualDom$text = _VirtualDom_text;
 var $elm$html$Html$text = $elm$virtual_dom$VirtualDom$text;
 var $elm$html$Html$textarea = _VirtualDom_node('textarea');
-var $elm$html$Html$Attributes$value = $elm$html$Html$Attributes$stringProperty('value');
 var $author$project$Main$view = function (model) {
 	return {
 		body: _List_fromArray(
@@ -6248,24 +6250,31 @@ var $author$project$Main$view = function (model) {
 							]),
 						_List_Nil),
 						A2(
-						$elm$html$Html$label,
+						$elm$html$Html$div,
 						_List_fromArray(
 							[
-								$elm$html$Html$Attributes$for('elm-text')
+								$elm$html$Html$Attributes$class('nes-container is-dark with-title')
 							]),
 						_List_fromArray(
 							[
-								$elm$html$Html$text('Elm')
+								A2(
+								$elm$html$Html$p,
+								_List_fromArray(
+									[
+										$elm$html$Html$Attributes$class('title')
+									]),
+								_List_fromArray(
+									[
+										$elm$html$Html$text('Elm')
+									])),
+								A2(
+								$elm$html$Html$p,
+								_List_Nil,
+								_List_fromArray(
+									[
+										$elm$html$Html$text(model.elmText)
+									]))
 							])),
-						A2(
-						$elm$html$Html$textarea,
-						_List_fromArray(
-							[
-								$elm$html$Html$Attributes$id('elm-text'),
-								$elm$html$Html$Attributes$class('nes-textarea'),
-								$elm$html$Html$Attributes$value(model.elmText)
-							]),
-						_List_Nil),
 						A2(
 						$elm$html$Html$a,
 						_List_fromArray(

@@ -5,6 +5,7 @@ import Html exposing (div, textarea, label, text, i, a)
 import Html.Attributes exposing (class, id, for, value, href, target)
 import Html.Events exposing (onInput)
 import H.Render exposing (renderElm)
+import Html exposing (p)
 
 main : Program () Model Msg
 main =
@@ -15,17 +16,6 @@ main =
         , subscriptions = subscriptions
         }
 
-subscriptions : Model -> Sub Msg
-subscriptions _ =
-    Sub.none
-
-init : flags -> (Model, Cmd Msg)
-init _ =
-    ( { htmlText = ""
-      , elmText = ""
-      , repo = "https://github.com/dev-danilosilva/html-to-elm"
-      }
-    , Cmd.none )
 
 type alias Model =
     { htmlText : String
@@ -35,6 +25,21 @@ type alias Model =
 
 type Msg
     = InsertHtmlText String
+
+
+init : flags -> (Model, Cmd Msg)
+init _ =
+    ( { htmlText = ""
+      , elmText = ""
+      , repo = "https://github.com/dev-danilosilva/html-to-elm"
+      }
+    , Cmd.none )
+
+
+subscriptions : Model -> Sub Msg
+subscriptions _ =
+    Sub.none
+
 
 update : Msg -> Model -> (Model, Cmd Msg)
 update msg model =
@@ -58,8 +63,10 @@ view model =
         [ div [class "container"]
             [ label [for "html-text"] [text "Html"]
             , textarea [id "html-text", class "nes-textarea", onInput InsertHtmlText] []
-            , label [for "elm-text"] [text "Elm"]
-            , textarea [id "elm-text", class "nes-textarea", value model.elmText] []
+            , div [class "nes-container is-dark with-title"]
+                [ p [class "title"] [text "Elm"]
+                , p [] [text model.elmText]
+                ]
             , a [href model.repo, target "blank_"]
                 [ i [class "nes-icon github is-large"] []
                 ]

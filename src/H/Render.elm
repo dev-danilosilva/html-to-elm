@@ -41,7 +41,7 @@ node2Elm node_ =
                     , "]"
                     , " "
                     , "["
-                    , String.concat <| List.map node2Elm children
+                    , String.join ", " <| List.map node2Elm children
                     , "]"
                     ]
 
