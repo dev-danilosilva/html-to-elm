@@ -5562,7 +5562,7 @@ var $elm$parser$Parser$Advanced$getChompedString = function (parser) {
 	return A2($elm$parser$Parser$Advanced$mapChompedString, $elm$core$Basics$always, parser);
 };
 var $elm$parser$Parser$getChompedString = $elm$parser$Parser$Advanced$getChompedString;
-var $author$project$Extra$Utils$isSpaceChar = function (c) {
+var $author$project$Extra$Char$isSpaceChar = function (c) {
 	return _Utils_eq(
 		c,
 		_Utils_chr(' ')) || (_Utils_eq(
@@ -5603,7 +5603,7 @@ var $elm$parser$Parser$succeed = $elm$parser$Parser$Advanced$succeed;
 var $elm$core$String$toLower = _String_toLower;
 var $author$project$H$Parser$closingTag = function (name) {
 	var isClosingTagChar = function (c) {
-		return (!$author$project$Extra$Utils$isSpaceChar(c)) && (!_Utils_eq(
+		return (!$author$project$Extra$Char$isSpaceChar(c)) && (!_Utils_eq(
 			c,
 			_Utils_chr('>')));
 	};
@@ -5631,7 +5631,7 @@ var $author$project$H$Parser$closingTag = function (name) {
 						$elm$core$Basics$eq(
 							_Utils_chr('/')))),
 				chompName),
-			$elm$parser$Parser$chompWhile($author$project$Extra$Utils$isSpaceChar)),
+			$elm$parser$Parser$chompWhile($author$project$Extra$Char$isSpaceChar)),
 		$elm$parser$Parser$chompIf(
 			$elm$core$Basics$eq(
 				_Utils_chr('>'))));
@@ -5807,7 +5807,7 @@ var $elm$core$Tuple$pair = F2(
 	});
 var $author$project$H$Parser$tagAttributeName = function () {
 	var isTagAttributeChar = function (c) {
-		return (!$author$project$Extra$Utils$isSpaceChar(c)) && ((!_Utils_eq(
+		return (!$author$project$Extra$Char$isSpaceChar(c)) && ((!_Utils_eq(
 			c,
 			_Utils_chr('\"'))) && ((!_Utils_eq(
 			c,
@@ -5880,7 +5880,7 @@ var $author$project$H$Parser$oneOrMore = F2(
 	});
 var $author$project$H$Parser$tagAttributeUnquotedValue = function () {
 	var isUnquotedValueChar = function (c) {
-		return (!$author$project$Extra$Utils$isSpaceChar(c)) && ((!_Utils_eq(
+		return (!$author$project$Extra$Char$isSpaceChar(c)) && ((!_Utils_eq(
 			c,
 			_Utils_chr('\"'))) && ((!_Utils_eq(
 			c,
@@ -5918,7 +5918,7 @@ var $author$project$H$Parser$tagAttributeValue = $elm$parser$Parser$oneOf(
 					$elm$parser$Parser$chompIf(
 						$elm$core$Basics$eq(
 							_Utils_chr('=')))),
-				$elm$parser$Parser$chompWhile($author$project$Extra$Utils$isSpaceChar)),
+				$elm$parser$Parser$chompWhile($author$project$Extra$Char$isSpaceChar)),
 			$elm$parser$Parser$oneOf(
 				_List_fromArray(
 					[
@@ -5937,11 +5937,11 @@ var $author$project$H$Parser$tagAttribute = A2(
 		A2(
 			$elm$parser$Parser$ignorer,
 			$author$project$H$Parser$tagAttributeName,
-			$elm$parser$Parser$chompWhile($author$project$Extra$Utils$isSpaceChar))),
+			$elm$parser$Parser$chompWhile($author$project$Extra$Char$isSpaceChar))),
 	A2(
 		$elm$parser$Parser$ignorer,
 		$author$project$H$Parser$tagAttributeValue,
-		$elm$parser$Parser$chompWhile($author$project$Extra$Utils$isSpaceChar)));
+		$elm$parser$Parser$chompWhile($author$project$Extra$Char$isSpaceChar)));
 var $author$project$H$Parser$tagAttributes = $author$project$H$Parser$many($author$project$H$Parser$tagAttribute);
 var $author$project$H$Parser$tagName = A2(
 	$elm$parser$Parser$map,
@@ -6029,7 +6029,7 @@ function $author$project$H$Parser$cyclic$element() {
 				A2(
 					$elm$parser$Parser$ignorer,
 					$author$project$H$Parser$tagName,
-					$elm$parser$Parser$chompWhile($author$project$Extra$Utils$isSpaceChar))),
+					$elm$parser$Parser$chompWhile($author$project$Extra$Char$isSpaceChar))),
 			$author$project$H$Parser$tagAttributes));
 }
 try {

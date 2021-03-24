@@ -1,5 +1,4 @@
-module Extra.Utils exposing (isSpaceChar)
-
+module Extra.Char exposing (isSpaceChar)
 
 isSpaceChar : Char -> Bool
 isSpaceChar c =

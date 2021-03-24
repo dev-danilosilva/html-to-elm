@@ -5,7 +5,7 @@ import Parser exposing ( (|.)
                        , Parser
                        )
 
-import Extra.Utils exposing (isSpaceChar)
+import Extra.Char exposing (isSpaceChar)
 
 
 type Node
