@@ -30,7 +30,7 @@ node2Elm node_ =
     in
         case node_ of
             Text txt ->
-                txt
+                "text " ++ txt
             
             Element el attrs children ->
                 String.concat
