@@ -1,11 +1,11 @@
 module Main exposing (..)
 
 import Browser exposing (Document)
-import Html exposing (div, textarea, label, text, i, a)
-import Html.Attributes exposing (class, id, for, value, href, target)
+import Html exposing (div, textarea, label, text, i, a, p)
+import Html.Attributes exposing (class, id, for, href, target)
 import Html.Events exposing (onInput)
-import H.Render exposing (renderElm)
-import Html exposing (p)
+import H.Render exposing (render2Elm)
+
 
 main : Program () Model Msg
 main =
@@ -49,7 +49,7 @@ update msg model =
                 { model |
                       htmlText = html 
                     , elmText =
-                        case renderElm html of
+                        case render2Elm html of
                             Ok txt ->
                                 txt
                             Err txt ->

@@ -1,10 +1,10 @@
-module H.Render exposing (node2Elm, node2String, renderElm)
+module H.Render exposing (node2Elm, node2String, render2Elm)
 
 import H.Parser exposing (run, Node(..), Attribute)
 
 
-renderElm : String -> Result String String
-renderElm input =
+render2Elm : String -> Result String String
+render2Elm input =
     case run input of
         Ok ns ->
             case List.length ns of
