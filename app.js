@@ -5312,7 +5312,7 @@ var $author$project$H$Render$node2Elm = function (node_) {
 	};
 	if (node_.$ === 'Text') {
 		var txt = node_.a;
-		return 'text ' + txt;
+		return 'text \"' + (txt + '\"');
 	} else {
 		var el = node_.a;
 		var attrs = node_.b;
