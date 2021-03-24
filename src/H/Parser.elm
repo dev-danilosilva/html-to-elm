@@ -121,7 +121,6 @@ tagAttributeUnquotedValue =
 
 
 tagAttributeQuotedValue : Char -> Parser String
-
 tagAttributeQuotedValue quote =
     let
         isQuotedValueChar c =
