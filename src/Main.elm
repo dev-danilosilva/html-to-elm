@@ -1,8 +1,8 @@
 module Main exposing (..)
 
 import Browser exposing (Document)
-import Html exposing (div, textarea, label, text)
-import Html.Attributes exposing (class, id, for, value)
+import Html exposing (div, textarea, label, text, i, a)
+import Html.Attributes exposing (class, id, for, value, href, target)
 import Html.Events exposing (onInput)
 import H.Render exposing (renderElm)
 
@@ -23,12 +23,14 @@ init : flags -> (Model, Cmd Msg)
 init _ =
     ( { htmlText = ""
       , elmText = ""
+      , repo = "https://github.com/dev-danilosilva/html-to-elm"
       }
     , Cmd.none )
 
 type alias Model =
     { htmlText : String
     , elmText : String
+    , repo : String
     }
 
 type Msg
@@ -58,6 +60,9 @@ view model =
             , textarea [id "html-text", class "nes-textarea", onInput InsertHtmlText] []
             , label [for "elm-text"] [text "Elm"]
             , textarea [id "elm-text", class "nes-textarea", value model.elmText] []
+            , a [href model.repo, target "blank_"]
+                [ i [class "nes-icon github is-large"] []
+                ]
             ]
         ]
     }

@@ -5278,7 +5278,7 @@ var $elm$core$Platform$Cmd$batch = _Platform_batch;
 var $elm$core$Platform$Cmd$none = $elm$core$Platform$Cmd$batch(_List_Nil);
 var $author$project$Main$init = function (_v0) {
 	return _Utils_Tuple2(
-		{elmText: '', htmlText: ''},
+		{elmText: '', htmlText: '', repo: 'https://github.com/dev-danilosilva/html-to-elm'},
 		$elm$core$Platform$Cmd$none);
 };
 var $elm$core$Platform$Sub$batch = _Platform_batch;
@@ -6156,6 +6156,7 @@ var $author$project$Main$update = F2(
 var $author$project$Main$InsertHtmlText = function (a) {
 	return {$: 'InsertHtmlText', a: a};
 };
+var $elm$html$Html$a = _VirtualDom_node('a');
 var $elm$json$Json$Encode$string = _Json_wrap;
 var $elm$html$Html$Attributes$stringProperty = F2(
 	function (key, string) {
@@ -6167,6 +6168,13 @@ var $elm$html$Html$Attributes$stringProperty = F2(
 var $elm$html$Html$Attributes$class = $elm$html$Html$Attributes$stringProperty('className');
 var $elm$html$Html$div = _VirtualDom_node('div');
 var $elm$html$Html$Attributes$for = $elm$html$Html$Attributes$stringProperty('htmlFor');
+var $elm$html$Html$Attributes$href = function (url) {
+	return A2(
+		$elm$html$Html$Attributes$stringProperty,
+		'href',
+		_VirtualDom_noJavaScriptUri(url));
+};
+var $elm$html$Html$i = _VirtualDom_node('i');
 var $elm$html$Html$Attributes$id = $elm$html$Html$Attributes$stringProperty('id');
 var $elm$html$Html$label = _VirtualDom_node('label');
 var $elm$html$Html$Events$alwaysStop = function (x) {
@@ -6203,6 +6211,7 @@ var $elm$html$Html$Events$onInput = function (tagger) {
 			$elm$html$Html$Events$alwaysStop,
 			A2($elm$json$Json$Decode$map, tagger, $elm$html$Html$Events$targetValue)));
 };
+var $elm$html$Html$Attributes$target = $elm$html$Html$Attributes$stringProperty('target');
 var $elm$virtual_dom$VirtualDom$text = _VirtualDom_text;
 var $elm$html$Html$text = $elm$virtual_dom$VirtualDom$text;
 var $elm$html$Html$textarea = _VirtualDom_node('textarea');
@@ -6256,7 +6265,24 @@ var $author$project$Main$view = function (model) {
 								$elm$html$Html$Attributes$class('nes-textarea'),
 								$elm$html$Html$Attributes$value(model.elmText)
 							]),
-						_List_Nil)
+						_List_Nil),
+						A2(
+						$elm$html$Html$a,
+						_List_fromArray(
+							[
+								$elm$html$Html$Attributes$href(model.repo),
+								$elm$html$Html$Attributes$target('blank_')
+							]),
+						_List_fromArray(
+							[
+								A2(
+								$elm$html$Html$i,
+								_List_fromArray(
+									[
+										$elm$html$Html$Attributes$class('nes-icon github is-large')
+									]),
+								_List_Nil)
+							]))
 					]))
 			]),
 		title: 'Html 2 Elm!'
