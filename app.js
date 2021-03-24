@@ -6259,7 +6259,7 @@ var $author$project$Main$view = function (model) {
 						_List_Nil)
 					]))
 			]),
-		title: 'Dashboard Application'
+		title: 'Html To Elm'
 	};
 };
 var $author$project$Main$main = $elm$browser$Browser$document(
